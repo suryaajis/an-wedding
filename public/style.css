@@ -25,18 +25,23 @@
 }
 
 @keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
-.fade-in { animation: fadeIn 5s; }
-
+.fade-in {
+  animation: fadeIn 5s;
+}
 
 body {
   font-size: 1.2rem;
   font-family: "Sofia Sans", sans-serif;
   letter-spacing: 2px;
   font-weight: 700;
-  min-height: 4000px;
+  min-height: 3400px;
 }
 
 .hero::before {
@@ -46,7 +51,7 @@ body {
   left: 0;
   height: 100%;
   width: 100%;
-  background-image: url(img/wallpaper/wallpaper-2.jpeg);
+  background-image: url(img/bg/w-1.jpeg);
   background-size: cover;
   background-position: center;
   z-index: -1;
@@ -88,6 +93,16 @@ body {
   color: white;
 }
 
+.hero .animation {
+  height: 90%;
+  width: 80%;
+  /* background-color: white; */
+  position: absolute;
+  left: 10%;
+  top: -5%;
+  z-index: -1;
+}
+
 .mynavbar {
   background-color: rgba(255, 255, 255, 0.3) !important;
   backdrop-filter: blur(4px);
@@ -109,7 +124,7 @@ body {
 }
 
 .home {
-  background-image: url(img/wallpaper/wallpaper-1.jpeg);
+  background-image: url(img/bg/w-2.jpeg);
   background-size: cover;
   min-height: 100vh;
   padding-top: 15rem;
@@ -126,6 +141,7 @@ body {
   font-family: "eunoia";
   font-size: 5rem;
   font-weight: bold;
+  text-shadow: 0 0 10px;
 }
 
 .home h3 {
@@ -139,13 +155,18 @@ body {
 }
 
 .home .couple {
-  margin-top: 100px;
+  margin-top: 50px;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
 }
 
 .home .couple h3 {
   font-family: "perfect-bomber";
-  font-size: 3.8rem;
+  font-size: 3.4rem;
   color: var(--maroon);
+  text-shadow: 1px 1px #42191e;
 }
 
 .home .couple img {
@@ -155,13 +176,14 @@ body {
 .home .heart {
   width: 50px;
   height: 50px;
+  padding-top: 5px;
   background-color: white;
   display: flex;
   border-radius: 50%;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   position: absolute;
   left: 50%;
-  transform: translateX(-50%) translateY(65px);
+  transform: translateX(-50%) translateY(50px);
 }
 
 .home .heart i {
@@ -169,8 +191,31 @@ body {
   color: var(--maroon);
 }
 
+.home .story p { 
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+  margin-top: -80px;
+}
+
+.home .animation {
+  height: 90%;
+  width: 80%;
+  background-color: white;
+  position: absolute;
+  left: 10%;
+  top: 100vh;
+  z-index: -1;
+}
+
+.home a {
+  color: white;
+  background-color: var(--maroon);
+  box-shadow: var(--shadow);
+}
+
 .info {
-  background-image: url(img/wallpaper/wallpaper-1.jpeg);
+  background-image: url(img/bg/w-3.jpeg);
   background-size: cover;
   color: black;
   padding-top: 10rem;
@@ -189,8 +234,10 @@ body {
 }
 
 .info .card {
-  background-color: rgba(255, 255, 255, 0.2) !important;
+  background-color: transparent;
+  border: 0;
   border-radius: 10px;
+  padding: 10px;
 }
 
 .info .card-header {
@@ -228,6 +275,9 @@ body {
 
 .info .maps {
   border-radius: 5%;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
 }
 
 .story,
@@ -257,109 +307,14 @@ body {
   font-weight: 300;
 }
 
-.timeline {
-  list-style: none;
-  padding: 1.4rem 0;
-  margin-top: 1rem;
-  position: relative;
-}
-
-.timeline::before {
-  content: "";
-  top: 0;
-  bottom: 0;
-  position: absolute;
-  width: 1px;
-  background-color: #ccc;
-  left: 50%;
-}
-
-.timeline li {
-  margin-bottom: 1.5rem;
-  position: relative;
-}
-
-.timeline li::before,
-.timeline li::after {
-  content: "";
-  display: table;
-}
-
-.timeline li::after {
-  clear: both;
-}
-
-.timeline li .timeline-image {
-  width: 160px;
-  height: 160px;
-  background-color: #ccc;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 50%;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.timeline li .timeline-panel {
-  width: 40%;
-  float: left;
-  border: 1px solid #ccc;
-  padding: 2rem;
-  position: relative;
-  border-radius: 8px;
-  background-color: #fff;
-}
-
-.timeline li .timeline-panel::before {
-  content: "";
-  display: inline-block;
-  position: absolute;
-  border-top: 15px solid transparent;
-  border-left: 15px solid #ccc;
-  border-right: 0 solid #ccc;
-  border-bottom: 15px solid transparent;
-  top: 80px;
-  right: -15px;
-}
-
-.timeline li .timeline-panel::after {
-  content: "";
-  position: absolute;
-  display: inline-block;
-  border-top: 14px solid transparent;
-  border-left: 14px solid #fff;
-  border-right: 0 solid #fff;
-  border-bottom: 14px solid transparent;
-  top: 81px;
-  right: -13px;
-}
-
-.timeline li.timeline-inverted .timeline-panel {
-  float: right;
-}
-
-.timeline li.timeline-inverted .timeline-panel::before {
-  border-left-width: 0;
-  border-right-width: 15px;
-  left: -15px;
-  right: auto;
-}
-
-.timeline li.timeline-inverted .timeline-panel::after {
-  border-left-width: 0;
-  border-right-width: 14px;
-  left: -13px;
-  right: auto;
-}
-
 .gallery {
   background-color: #f5f5f5;
 }
 
 .wish {
-  background-color: var(--bg);
+  padding-left: 30px;
+  padding-right: 30px;
+  background-image: url(img/bg/w-3.jpeg);
 }
 
 .wish h2 {
@@ -367,11 +322,11 @@ body {
 }
 
 .wish p {
-  color: white;
+  color: black;
 }
 
 .wish form label {
-  color: white;
+  color: black;
 }
 
 .wish button {
@@ -443,6 +398,14 @@ footer li {
     transform: translateX(-50%) translateY(45px);
   }
 
+  .home .couple h3 {
+    font-size: 2.8rem;
+  }
+
+  .home .couple p {
+    font-size: 1.1rem;
+  }
+
   .simply-countdown > .simply-section > .simply-amount {
     font-size: 5px;
   }
@@ -498,6 +461,10 @@ footer li {
     font-size: 65%;
   }
 
+  .hero .animation {
+    top: 0;
+  }  
+
   .simply-countdown > .simply-section {
     padding: 60px;
     margin: 5px;
@@ -524,8 +491,12 @@ footer li {
     font-size: 60%;
   }
 
-  .maps {
-    width: 80%;
+  .hero .animation {
+    top: -1%;
+  }
+
+  .info .maps {
+    width: 70%;
   }
 
   /* UTILITY */
