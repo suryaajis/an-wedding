@@ -36,12 +36,15 @@
   animation: fadeIn 5s;
 }
 
+.fade-in-10 {
+  animation: fadeIn 10s;
+}
+
 body {
   font-size: 1.2rem;
   font-family: "Sofia Sans", sans-serif;
   letter-spacing: 2px;
   font-weight: 700;
-  min-height: 3400px;
 }
 
 .hero::before {
@@ -51,7 +54,7 @@ body {
   left: 0;
   height: 100%;
   width: 100%;
-  background-image: url(img/bg/w-1.jpeg);
+  background-image: url(img/bg/w11.jpeg);
   background-size: cover;
   background-position: center;
   z-index: -1;
@@ -95,10 +98,10 @@ body {
 
 .hero .animation {
   height: 90%;
-  width: 80%;
+  width: 100%;
   /* background-color: white; */
   position: absolute;
-  left: 10%;
+  left: 0%;
   top: -5%;
   z-index: -1;
 }
@@ -124,7 +127,7 @@ body {
 }
 
 .home {
-  background-image: url(img/bg/w-2.jpeg);
+  background-image: url(img/bg/w2.jpeg);
   background-size: cover;
   min-height: 100vh;
   padding-top: 15rem;
@@ -191,22 +194,22 @@ body {
   color: var(--maroon);
 }
 
-.home .story p { 
-  font-size: 1rem;
+.home .story p {
+  font-size: 22px;
   font-weight: 500;
   margin-bottom: 20px;
-  margin-top: -80px;
+  margin-top: -70px;
 }
 
-.home .animation {
+/* .home .animation {
   height: 90%;
   width: 80%;
   background-color: white;
   position: absolute;
-  left: 10%;
-  top: 100vh;
+  left: 0;
+  top: 300px;
   z-index: -1;
-}
+} */
 
 .home a {
   color: white;
@@ -215,7 +218,7 @@ body {
 }
 
 .info {
-  background-image: url(img/bg/w-3.jpeg);
+  background-image: url(img/bg/w3.jpeg);
   background-size: cover;
   color: black;
   padding-top: 10rem;
@@ -229,12 +232,12 @@ body {
 .info .description {
   font-weight: 300;
   margin-top: 30px;
-  font-size: 28px;
+  font-size: 24px;
   font-family: "eunoia";
 }
 
 .info .card {
-  background-color: transparent;
+  background-color: #6d29322d;
   border: 0;
   border-radius: 10px;
   padding: 10px;
@@ -242,8 +245,15 @@ body {
 
 .info .card-header {
   text-transform: uppercase;
+  text-decoration: underline;
   letter-spacing: 0.1rem;
-  border-bottom: 1px solid #999;
+  border: 0;
+  background-color: transparent;
+}
+
+.info .card-header h4 {
+  font-family: "boldest-enough";
+  font-size: 1.6rem;
 }
 
 .info .card-body {
@@ -252,8 +262,13 @@ body {
   margin-bottom: 15px;
 }
 
-.info .card-body h4 {
+.info .card-body h4,
+h5 {
   font-family: "boldest-enough";
+}
+
+.info .card-body h5 {
+  font-size: 2.2rem;
 }
 
 .info .card-body h4 .day {
@@ -261,7 +276,7 @@ body {
 }
 
 .info .card-body p {
-  font-size: 1.4rem;
+  font-size: 2.2rem;
 }
 
 .info .card-footer {
@@ -314,7 +329,7 @@ body {
 .wish {
   padding-left: 30px;
   padding-right: 30px;
-  background-image: url(img/bg/w-3.jpeg);
+  background-image: url(img/bg/w3.jpeg);
 }
 
 .wish h2 {
@@ -463,7 +478,7 @@ footer li {
 
   .hero .animation {
     top: 0;
-  }  
+  }
 
   .simply-countdown > .simply-section {
     padding: 60px;
@@ -495,8 +510,25 @@ footer li {
     top: -1%;
   }
 
+  .home h2 {
+    font-size: 5rem;
+  }
+
+  .home .story p {
+    font-size: 12px;
+  }
+
+  .info .card {
+    /* margin-right: 20px;
+    margin-left: 20px; */
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+
   .info .maps {
-    width: 70%;
+    width: 90%;
+    height: 100%;
+    margin-bottom: 50px;
   }
 
   /* UTILITY */
