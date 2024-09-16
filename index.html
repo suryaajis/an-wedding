@@ -11,6 +11,30 @@
       integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css"
+      integrity="sha256-WAgYcAck1C1/zEl5sBl5cfyhxtLgKGdpI3oKyJffVRI="
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      integrity="sha256-PI8n5gCcz9cQqQXm3PEtDuPG8qx9oFsFctPg0S5zb8g="
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"
+      integrity="sha256-wiz7ZSCn/btzhjKDQBms9Hx4sSeUYsDrTLg7roPstac="
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
+      integrity="sha256-GqiEX9BuR1rv5zPU5Vs2qS/NSHl1BJyBcjQYJ6ycwD4="
+      crossorigin="anonymous"
+    />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -26,6 +50,16 @@
     <!-- simplyCountdown -->
     <link rel="stylesheet" href="countdown/simplyCountdown.theme.default.css" />
     <script src="assets/countdown/simplyCountdown.min.js"></script>
+
+    <!-- Preload Resources -->
+    <link
+      rel="preload"
+      href="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.js"
+      integrity="sha256-mvTaORw+RTgKnX6ZHT4P5Sc9DNP2TBpSGII7F3sT8iE="
+      crossorigin="anonymous"
+      as="script"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
     <!-- Bootstrap Icons -->
     <link
@@ -49,7 +83,6 @@
       class="fade-in hero w-100 h-100 p-3 mx-auto text-center d-flex justify-content-center align-items-center text-white"
     >
       <main class="fade-in-10">
-        <img src="assets/img/animasi/anim-1.gif" class="animation" />
         <h3>The Wedding Of</h3>
         <h1>Aji & Nikmah</h1>
         <p>We request the honour of your presence</p>
@@ -59,64 +92,52 @@
       </main>
     </section>
 
-    <!-- <nav class="navbar navbar-expand-md bg-transparent sticky-top mynavbar">
-      <div class="container">
-        <a class="navbar-brand" href="#">Dino</a>
-        <button
-          class="navbar-toggler border-0"
-          type="button"
-          data-bs-toggle="offcanvas"
-          data-bs-target="#offcanvasNavbar"
-          aria-controls="offcanvasNavbar"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div
-          class="offcanvas offcanvas-end"
-          tabindex="-1"
-          id="offcanvasNavbar"
-          aria-labelledby="offcanvasNavbarLabel"
-        >
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Dino</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="offcanvas"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="offcanvas-body">
-            <div class="navbar-nav ms-auto">
-              <a
-                class="nav-link"
-                href="#home"
-                onclick="disableScrollWithDelay(1000)"
-                >Home</a
-              >
-              <a class="nav-link" href="#info">Info</a>
-              <a class="nav-link" href="#story">Story</a>
-              <a class="nav-link" href="#gallery">Gallery</a>
-              <a class="nav-link" href="#rsvp">RSVP</a>
-              <a class="nav-link" href="#gifts">Gifts</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </nav> -->
+    <!-- Navbar Bottom -->
+    <nav
+      class="mynavbar navbar navbar-expand fixed-bottom rounded-top-4"
+      id="navbar-menu"
+    >
+      <ul class="navbar-nav nav-justified w-100 align-items-center">
+        <li class="nav-item">
+          <a class="nav-link" href="#hero">
+            <i class="fa-solid fa-house"></i>
+            <span class="d-block" style="font-size: 0.7rem">Home</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#home">
+            <i class="fa-solid fa-user-group"></i>
+            <span class="d-block" style="font-size: 0.7rem">Bride</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#info">
+            <i class="fa-solid fa-calendar-check"></i>
+            <span class="d-block" style="font-size: 0.7rem">Info</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#wish">
+            <i class="fa-solid fa-comments"></i>
+            <span class="d-block" style="font-size: 0.7rem">Wish</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
 
     <section id="home" class="home">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-md-8 text-center">
-            <h2>We Are <br />Getting Married</h2>
+            <h2 data-aos="zoom-in" data-aos-duration="3000">
+              We Are <br />Getting Married
+            </h2>
           </div>
         </div>
 
         <div class="row couple">
           <div class="col-lg-6 mb-4">
-            <div class="row">
+            <div data-aos="fade-right" data-aos-duration="3000" class="row">
               <div class="col-9 text-end">
                 <h3>Surya Aji Santosa</h3>
                 <p>
@@ -137,7 +158,7 @@
           <span class="heart"><i class="bi bi-heart-fill"></i></span>
 
           <div class="col-lg-6">
-            <div class="row">
+            <div data-aos="fade-left" data-aos-duration="3000" class="row">
               <div class="col-3">
                 <img
                   src="assets/img/nikmah.png"
@@ -156,7 +177,11 @@
           </div>
         </div>
 
-        <div class="row story text-center">
+        <div
+          data-aos="fade-up"
+          data-aos-duration="3000"
+          class="row story text-center"
+        >
           <div class="col">
             <p>
               We were high school friends, but in different classes. We were
@@ -226,6 +251,41 @@
             <h2>Best Wishes</h2>
             <p>We kindly ask for your blessings for us.</p>
           </div>
+
+          <div class="card-body border rounded-4 shadow p-3">
+            <div class="mb-3">
+              <label for="form-name" class="form-label">Name</label>
+              <input
+                type="text"
+                class="form-control shadow-sm rounded-4"
+                id="form-name"
+                placeholder="Write your name"
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="form-comment" class="form-label"
+                >Wishes</label
+              >
+              <textarea
+                class="form-control shadow-sm rounded-4"
+                id="form-comment"
+                rows="4"
+                placeholder="Write your best wishes"
+              ></textarea>
+            </div>
+
+            <div class="d-grid">
+              <button
+                class="btn btn-primary btn-sm rounded-4 shadow m-1"
+                onclick="comment.send(this)"
+              >
+                <i class="fa-solid fa-paper-plane me-1"></i>Send
+              </button>
+            </div>
+          </div>
+
+          <div class="my-3 pt-3" id="comments" data-loading="false"></div>
         </div>
       </div>
     </section>
@@ -239,10 +299,10 @@
             >
             <small class="block"
               >Design by
-              <a href="https://instagram.com/sandhikagalih">@suryaaji.s</a
-              >.</small
-            >
-
+              <a href="https://instagram.com/suryaaji.s">@suryaaji.s</a> and
+              <a href="https://instagram.com/suryaaji.s">@nikmahayatislam</a>
+            </small>
+            <!-- 
             <ul class="mt-3">
               <li>
                 <a href="#"><i class="bi bi-instagram"></i></a>
@@ -259,7 +319,7 @@
               <li>
                 <a href="#"><i class="bi bi-tiktok"></i></a>
               </li>
-            </ul>
+            </ul> -->
           </div>
         </div>
       </div>
@@ -282,39 +342,28 @@
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/bs5-lightbox@1.8.3/dist/index.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
     <script src="assets/sakura/jquery-sakura.min.js"></script>
 
-    <!-- Countdown -->
-    <script>
-      simplyCountdown(".simply-countdown", {
-        year: 2024, // required
-        month: 10, // required
-        day: 5, // required
-        hours: 9, // Default is 0 [0-23] integer
-        words: {
-          //words displayed into the countdown
-          days: { singular: "hari", plural: "hari" },
-          hours: { singular: "jam", plural: "jam" },
-          minutes: { singular: "menit", plural: "menit" },
-          seconds: { singular: "detik", plural: "detik" },
-        },
-      });
-    </script>
-
-    <!-- Scroll and Audio -->
     <script>
       const rootElement = document.querySelector(":root");
       const audioIconWrapper = document.querySelector(".audio-icon-wrapper");
       const audioIcon = document.querySelector(".audio-icon-wrapper i");
       const song = document.querySelector("#song");
+      const navbar = document.querySelector(".mynavbar");
+      const homeTitle = document.querySelector(".home-title");
       song.currentTime = 11;
       let isPlaying = false;
+      AOS.init();
 
       function enableScroll() {
         window.onscroll = function () {};
         rootElement.style.scrollBehavior = "smooth";
-        // localStorage.setItem('opened', 'true');
+        navbar.style.visibility = "visible";
         playAudio();
+        showConfetti();
       }
 
       function disableScroll() {
@@ -326,6 +375,7 @@
         };
 
         rootElement.style.scrollBehavior = "auto";
+        navbar.style.visibility = "hidden";
       }
 
       function disableScrollWithDelay(delay) {
@@ -365,6 +415,59 @@
         });
       }
 
+      function showConfetti() {
+        confetti({
+          origin: { y: 1 },
+          zIndex: 1057,
+        });
+
+        function animation() {
+          const duration = 15 * 1000;
+          const animationEnd = Date.now() + duration;
+          const colors = ["#FFC0CB", "#FF1493", "#C71585"];
+
+          const randomInRange = (min, max) => {
+            return Math.random() * (max - min) + min;
+          };
+
+          const heart = confetti.shapeFromPath({
+            path: "M167 72c19,-38 37,-56 75,-56 42,0 76,33 76,75 0,76 -76,151 -151,227 -76,-76 -151,-151 -151,-227 0,-42 33,-75 75,-75 38,0 57,18 76,56z",
+            matrix: [
+              0.03333333333333333, 0, 0, 0.03333333333333333,
+              -5.566666666666666, -5.533333333333333,
+            ],
+          });
+
+          (function frame() {
+            const timeLeft = animationEnd - Date.now();
+
+            colors.forEach((color) => {
+              confetti({
+                particleCount: 1,
+                startVelocity: 0,
+                ticks: Math.max(50, 75 * (timeLeft / duration)),
+                origin: {
+                  x: Math.random(),
+                  y: Math.abs(Math.random() - timeLeft / duration),
+                },
+                zIndex: 1057,
+                colors: [color],
+                shapes: [heart],
+                drift: randomInRange(-0.5, 0.5),
+                gravity: randomInRange(0.5, 1),
+                scalar: randomInRange(0.5, 1),
+              });
+            });
+
+            if (timeLeft > 0) {
+              requestAnimationFrame(frame);
+            }
+          })();
+        }
+
+        setTimeout(animation, 1500);
+      }
+
       audioIconWrapper.onclick = function () {
         if (isPlaying) {
           song.pause();
@@ -381,6 +484,23 @@
 
       disableScroll();
       sakuraFalling();
+    </script>
+
+    <!-- Countdown -->
+    <script>
+      simplyCountdown(".simply-countdown", {
+        year: 2024, // required
+        month: 10, // required
+        day: 5, // required
+        hours: 9, // Default is 0 [0-23] integer
+        words: {
+          //words displayed into the countdown
+          days: { singular: "hari", plural: "hari" },
+          hours: { singular: "jam", plural: "jam" },
+          minutes: { singular: "menit", plural: "menit" },
+          seconds: { singular: "detik", plural: "detik" },
+        },
+      });
     </script>
 
     <!-- Kehadiran -->
