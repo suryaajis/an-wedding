@@ -32,12 +32,27 @@
     opacity: 1;
   }
 }
+
+@keyframes love {
+  50% {
+      transform: translateY(1rem);
+  }
+}
+
 .fade-in {
   animation: fadeIn 5s;
 }
 
 .fade-in-10 {
   animation: fadeIn 10s;
+}
+
+.animate-love {
+  animation: love 5s ease-in-out infinite;
+}
+
+.sakura-falling {
+  z-index: 1;
 }
 
 body {
@@ -47,9 +62,6 @@ body {
   font-weight: 700;
 }
 
-.sakura-falling {
-  z-index: 1;
-}
 
 .hero::before {
   content: "";
@@ -62,6 +74,7 @@ body {
   background-size: cover;
   background-position: center;
   z-index: -1;
+  mask-image: linear-gradient(to bottom, black, black, black, black, black, black, transparent);
 }
 
 .hero {
@@ -96,18 +109,8 @@ body {
 }
 
 .hero a:hover {
-  background-color: var(--maroon);
+  background-color: #491b22;
   color: white;
-}
-
-.hero .animation {
-  height: 90%;
-  width: 100%;
-  /* background-color: white; */
-  position: absolute;
-  left: 0%;
-  top: -5%;
-  z-index: -1;
 }
 
 .mynavbar {
@@ -124,8 +127,8 @@ body {
   background-image: url(assets/img/bg/w2.jpeg);
   background-size: cover;
   min-height: 100vh;
-  padding-top: 15rem;
-  padding-bottom: 5rem;
+  padding-top: 7rem;
+  mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
 }
 
 .home h2,
@@ -213,8 +216,13 @@ body {
   background-image: url(assets/img/bg/w3.jpeg);
   background-size: cover;
   color: black;
-  padding-top: 10rem;
+  padding-top: 15rem;
   height: 100vh;
+  mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+}
+
+.info h2 {
+  margin-bottom: 50px;
 }
 
 .info .alamat {
@@ -315,9 +323,11 @@ h5 {
 }
 
 .wish {
+  padding-top: 50px;
   padding-left: 30px;
   padding-right: 30px;
   background-image: url(assets/img/bg/w3.jpeg);
+  mask-image: linear-gradient(to top, black, black, black, black, black, black, transparent);
 }
 
 .wish h2 {
@@ -326,6 +336,10 @@ h5 {
 
 .wish p {
   color: black;
+}
+
+.wish .card-body {
+  background-color: #eee9e3;
 }
 
 .wish form label {
@@ -348,7 +362,7 @@ footer {
   padding: 3rem;
   background-color: var(--maroon);
   color: white;
-  height: 150px;
+  height: 400px;
 }
 
 footer a {
@@ -518,7 +532,7 @@ footer li {
   }
 
   .home h2 {
-    font-size: 5rem;
+    font-size: 4.6rem;
   }
 
   .home .story p {
@@ -528,7 +542,11 @@ footer li {
 
   .info {
     height: 100%;
-    padding-bottom: 10px;
+    padding-bottom: 10rem;
+  }
+
+  .info h2 {
+    margin-bottom: 10px;
   }
 
   .info .card {
@@ -552,6 +570,11 @@ footer li {
 
   .wish {
     padding-top: 5rem;
+  }
+
+  footer {
+    height: 100%;
+    padding-bottom: 80px;
   }
 
   /* UTILITY */
