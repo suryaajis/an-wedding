@@ -258,7 +258,7 @@
               </p>
             </div>
 
-            <div class="row justify-content-center" style="margin-top: -20px">
+            <div class="row justify-content-center" style="margin-top: -20px; margin-bottom: 20px;">
               <div
                 class="col-4"
                 style="
@@ -356,7 +356,7 @@
             <div class="d-grid">
               <button
                 class="btn btn-primary btn-sm rounded-4 shadow m-1"
-                onclick="comment.send(this)"
+                onclick="comment()"
               >
                 <i class="fa-solid fa-paper-plane me-1"></i>Send
               </button>
@@ -420,207 +420,206 @@
         <i class="bi bi-disc"></i>
       </div>
     </div>
+  </body>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://cdn.jsdelivr.net/npm/bs5-lightbox@1.8.3/dist/index.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
-    <script src="assets/sakura/jquery-sakura.min.js"></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"
+  ></script>
+  <script src="https://cdn.jsdelivr.net/npm/bs5-lightbox@1.8.3/dist/index.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <script src="assets/sakura/jquery-sakura.min.js"></script>
+  <script src="script.js"></script>
 
-    <script>
-      AOS.init();
-      const rootElement = document.querySelector(":root");
-      const audioIconWrapper = document
-        .querySelector(".audio-icon-wrapper")
-        .addEventListener("click", function () {
+  <script>
+    AOS.init();
+    const rootElement = document.querySelector(":root");
+    const audioIconWrapper = document.querySelector(".audio-icon-wrapper");
+    const audioIcon = document.querySelector(".audio-icon-wrapper i");
+    const song = document.querySelector("#song");
+    const navbar = document.querySelector(".mynavbar");
+    const homeTitle = document.querySelector(".home-title");
+    let isPlaying = false;
+
+    function enableScroll() {
+      window.onscroll = function () {};
+      rootElement.style.scrollBehavior = "smooth";
+      navbar.style.visibility = "visible";
+      playAudio();
+      showConfetti();
+    }
+
+    function disableScroll() {
+      scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+
+      window.onscroll = function () {
+        window.scrollTo(scrollLeft, scrollTop);
+      };
+
+      rootElement.style.scrollBehavior = "auto";
+      navbar.style.visibility = "hidden";
+    }
+
+    function playAudio() {
+      song
+        .play()
+        .then(() => {
           song.currentTime = 11;
-          song.play();
+          isPlaying = true;
+        })
+        .catch((error) => {
+          console.log("Autoplay failed:", error);
         });
-      const audioIcon = document.querySelector(".audio-icon-wrapper i");
-      const song = document.querySelector("#song");
-      const navbar = document.querySelector(".mynavbar");
-      const homeTitle = document.querySelector(".home-title");
-      let isPlaying = false;
+    }
 
-      song.addEventListener("loadedmetadata", function () {
-        song.currentTime = 11;
+    function sakuraFalling() {
+      $(document).ready(function () {
+        // Initialize sakura falling effect on the entire body
+        $("body").sakura("start", {
+          blowAnimations: [
+            "blow-soft-left",
+            "blow-soft-right",
+            "blow-hard-left",
+            "blow-hard-right",
+          ], // Horizontal movement animation
+          className: "sakura", // Class name for the petals
+          fallSpeed: 1, // Speed of falling petals (increase for faster)
+          maxSize: 14, // Maximum size of petals
+          minSize: 9, // Minimum size of petals
+          newOn: 200, // Interval for adding new petals (smaller = more frequent)
+          swayAnimations: ["sway-0", "sway-1", "sway-2"], // Adding more swaying animations for variety
+        });
+      });
+    }
+
+    function showConfetti() {
+      confetti({
+        origin: { y: 1 },
+        zIndex: 1057,
+        colors: ["#6d2932", "#805c61", "#7a0f1d"],
       });
 
-      function enableScroll() {
-        window.onscroll = function () {};
-        rootElement.style.scrollBehavior = "smooth";
-        navbar.style.visibility = "visible";
-        playAudio();
-        showConfetti();
-      }
+      function animation() {
+        const duration = 60 * 1000;
+        const animationEnd = Date.now() + duration;
+        const colors = ["#FFC0CB", "#6d2932"];
 
-      function disableScroll() {
-        scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
-
-        window.onscroll = function () {
-          window.scrollTo(scrollLeft, scrollTop);
+        const randomInRange = (min, max) => {
+          return Math.random() * (max - min) + min;
         };
 
-        rootElement.style.scrollBehavior = "auto";
-        navbar.style.visibility = "hidden";
+        const heart = confetti.shapeFromPath({
+          path: "M167 72c19,-38 37,-56 75,-56 42,0 76,33 76,75 0,76 -76,151 -151,227 -76,-76 -151,-151 -151,-227 0,-42 33,-75 75,-75 38,0 57,18 76,56z",
+          matrix: [
+            0.03333333333333333, 0, 0, 0.03333333333333333, -5.566666666666666,
+            -5.533333333333333,
+          ],
+        });
+
+        (function frame() {
+          const timeLeft = animationEnd - Date.now();
+
+          colors.forEach((color) => {
+            confetti({
+              particleCount: 1,
+              startVelocity: 0,
+              ticks: Math.max(50, 75 * (timeLeft / duration)),
+              origin: {
+                x: Math.random(),
+                y: Math.abs(Math.random() - timeLeft / duration),
+              },
+              zIndex: 1057,
+              colors: [color],
+              shapes: [heart],
+              drift: randomInRange(-0.5, 0.5),
+              gravity: randomInRange(0.5, 1),
+              scalar: randomInRange(0.5, 1),
+            });
+          });
+
+          if (timeLeft > 0) {
+            requestAnimationFrame(frame);
+          }
+        })();
       }
 
-      function playAudio() {
+      setTimeout(animation, 1500);
+    }
+
+    const animate = (svg, timeout, classes) => {
+      setTimeout(() => {
+        svg.classList.add(classes);
+      }, timeout);
+    };
+
+    audioIconWrapper.onclick = function () {
+      if (isPlaying) {
+        song.pause();
+        audioIcon.classList.remove("bi-disc");
+        audioIcon.classList.add("bi-pause-circle");
+      } else {
         song
           .play()
           .then(() => {
-            song.currentTime = 11;
-            isPlaying = true;
+            song.currentTime = 11; // Set currentTime here after playback begins
+            audioIcon.classList.add("bi-disc");
+            audioIcon.classList.remove("bi-pause-circle");
           })
           .catch((error) => {
-            console.log("Autoplay failed:", error);
+            console.log("Playback failed:", error);
           });
       }
 
-      function sakuraFalling() {
-        $(document).ready(function () {
-          // Initialize sakura falling effect on the entire body
-          $("body").sakura("start", {
-            blowAnimations: [
-              "blow-soft-left",
-              "blow-soft-right",
-              "blow-hard-left",
-              "blow-hard-right",
-            ], // Horizontal movement animation
-            className: "sakura", // Class name for the petals
-            fallSpeed: 1, // Speed of falling petals (increase for faster)
-            maxSize: 14, // Maximum size of petals
-            minSize: 9, // Minimum size of petals
-            newOn: 200, // Interval for adding new petals (smaller = more frequent)
-            swayAnimations: ["sway-0", "sway-1", "sway-2"], // Adding more swaying animations for variety
-          });
-        });
-      }
+      isPlaying = !isPlaying;
+    };
 
-      function showConfetti() {
-        confetti({
-          origin: { y: 1 },
-          zIndex: 1057,
-          colors: ["#6d2932", "#805c61", "#7a0f1d"],
-        });
+    disableScroll();
+    sakuraFalling();
+  </script>
 
-        function animation() {
-          const duration = 60 * 1000;
-          const animationEnd = Date.now() + duration;
-          const colors = ["#FFC0CB", "#6d2932"];
+  <!-- Countdown -->
+  <script>
+    simplyCountdown(".simply-countdown", {
+      year: 2024, // required
+      month: 10, // required
+      day: 5, // required
+      hours: 9, // Default is 0 [0-23] integer
+      words: {
+        //words displayed into the countdown
+        days: { singular: "hari", plural: "hari" },
+        hours: { singular: "jam", plural: "jam" },
+        minutes: { singular: "menit", plural: "menit" },
+        seconds: { singular: "detik", plural: "detik" },
+      },
+    });
+  </script>
 
-          const randomInRange = (min, max) => {
-            return Math.random() * (max - min) + min;
-          };
+  <!-- Deploy Config -->
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
 
-          const heart = confetti.shapeFromPath({
-            path: "M167 72c19,-38 37,-56 75,-56 42,0 76,33 76,75 0,76 -76,151 -151,227 -76,-76 -151,-151 -151,-227 0,-42 33,-75 75,-75 38,0 57,18 76,56z",
-            matrix: [
-              0.03333333333333333, 0, 0, 0.03333333333333333,
-              -5.566666666666666, -5.533333333333333,
-            ],
-          });
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyDGiRRWqiZntdl1bYxk_MF7eGtmADeJq-A",
+      authDomain: "akumaunikahnih.firebaseapp.com",
+      projectId: "akumaunikahnih",
+      storageBucket: "akumaunikahnih.appspot.com",
+      messagingSenderId: "917578149360",
+      appId: "1:917578149360:web:a8eb3774ae7e82dcef8135",
+      measurementId: "G-0CMMLXFM9H",
+    };
 
-          (function frame() {
-            const timeLeft = animationEnd - Date.now();
-
-            colors.forEach((color) => {
-              confetti({
-                particleCount: 1,
-                startVelocity: 0,
-                ticks: Math.max(50, 75 * (timeLeft / duration)),
-                origin: {
-                  x: Math.random(),
-                  y: Math.abs(Math.random() - timeLeft / duration),
-                },
-                zIndex: 1057,
-                colors: [color],
-                shapes: [heart],
-                drift: randomInRange(-0.5, 0.5),
-                gravity: randomInRange(0.5, 1),
-                scalar: randomInRange(0.5, 1),
-              });
-            });
-
-            if (timeLeft > 0) {
-              requestAnimationFrame(frame);
-            }
-          })();
-        }
-
-        setTimeout(animation, 1500);
-      }
-
-      const animate = (svg, timeout, classes) => {
-        setTimeout(() => {
-          svg.classList.add(classes);
-        }, timeout);
-      };
-
-      audioIconWrapper.onclick = function () {
-        if (isPlaying) {
-          song.pause();
-          audioIcon.classList.remove("bi-disc");
-          audioIcon.classList.add("bi-pause-circle");
-        } else {
-          song.play();
-          audioIcon.classList.add("bi-disc");
-          audioIcon.classList.remove("bi-pause-circle");
-        }
-
-        isPlaying = !isPlaying;
-      };
-
-      disableScroll();
-      sakuraFalling();
-    </script>
-
-    <!-- Countdown -->
-    <script>
-      simplyCountdown(".simply-countdown", {
-        year: 2024, // required
-        month: 10, // required
-        day: 5, // required
-        hours: 9, // Default is 0 [0-23] integer
-        words: {
-          //words displayed into the countdown
-          days: { singular: "hari", plural: "hari" },
-          hours: { singular: "jam", plural: "jam" },
-          minutes: { singular: "menit", plural: "menit" },
-          seconds: { singular: "detik", plural: "detik" },
-        },
-      });
-    </script>
-
-    <!-- Deploy Config -->
-    <script type="module">
-      // Import the functions you need from the SDKs you need
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
-      import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-analytics.js";
-      // TODO: Add SDKs for Firebase products that you want to use
-      // https://firebase.google.com/docs/web/setup#available-libraries
-
-      // Your web app's Firebase configuration
-      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-      const firebaseConfig = {
-        apiKey: "AIzaSyDGiRRWqiZntdl1bYxk_MF7eGtmADeJq-A",
-        authDomain: "akumaunikahnih.firebaseapp.com",
-        projectId: "akumaunikahnih",
-        storageBucket: "akumaunikahnih.appspot.com",
-        messagingSenderId: "917578149360",
-        appId: "1:917578149360:web:a8eb3774ae7e82dcef8135",
-        measurementId: "G-0CMMLXFM9H",
-      };
-
-      // Initialize Firebase
-      const app = initializeApp(firebaseConfig);
-      const analytics = getAnalytics(app);
-    </script>
-  </body>
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
 </html>
