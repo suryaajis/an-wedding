@@ -610,17 +610,17 @@
         // Clear existing comments
         dataComment.innerHTML = "";
 
+        // Reverse the array so the last comment comes first
+        comments.reverse();
+
         // Loop through the comments and append them to the comments div
         comments.forEach((comment) => {
           const commentElement = document.createElement("div");
-          commentElement.classList.add(
-            "comment-item",
-            "rounded"
-          );
+          commentElement.classList.add("comment-item", "rounded");
           commentElement.innerHTML = `
-            <h5>${comment.name}</h5>
-            <p>${comment.comment}</p>
-          `;
+        <h5>${comment.name}</h5>
+        <p>${comment.comment}</p>
+      `;
           dataComment.appendChild(commentElement);
         });
       } catch (error) {
