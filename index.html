@@ -203,13 +203,14 @@
                 padding-right: 20px;
               "
             >
-              We were high school friends. After graduating, we kept in touch
-              only through social media. Long story short, we started talking
-              and meeting again at a Keshi concert. Since then, we’ve been
+              We were high school friends. After graduated, we kept in touch
+              only through social media. Long story short, we started to catch
+              up and met again at a Keshi concert. Since then, we’ve been
               talking more often and our relationship grew closer. After that,
-              Mas Aji confessed his feelings, and Nikmah accepted them. We've
+              Mas Aji confessed his love and Nikmah accepted his love too. We've
               been through a lot together and decided to take our relationship
-              to a more serious. And here we are, living happily ever after.
+              to a more serious commitment. And here we are, living happily ever
+              after! &lt;3
             </p>
           </div>
         </div>
@@ -344,15 +345,6 @@
             class="my-3 pt-3"
             id="comments"
           >
-            <div class="comment-item rounded">
-              <h5>Abc</h5>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Officiis fugit illo quia odit. Est ab suscipit quo consectetur
-                quam deleniti eos ullam explicabo atque. Nemo consectetur sequi
-                ullam amet esse.
-              </p>
-            </div>
           </div>
         </div>
       </div>
@@ -432,6 +424,7 @@
     const song = document.querySelector("#song");
     const navbar = document.querySelector(".mynavbar");
     const homeTitle = document.querySelector(".home-title");
+    const dataComment = document.querySelector("#comments");
     let isPlaying = false;
 
     function enableScroll() {
@@ -440,6 +433,7 @@
       navbar.style.visibility = "visible";
       playAudio();
       showConfetti();
+      getComment();
     }
 
     function disableScroll() {
@@ -565,14 +559,6 @@
       isPlaying = !isPlaying;
     };
 
-    disableScroll();
-    sakuraFalling();
-  </script>
-
-  <!-- Comment -->
-  <script>
-    const dataComment = document.querySelector("#comments");
-
     // Function to get comments from the API and display them
     async function getComment() {
       const url =
@@ -591,6 +577,7 @@
         }
 
         const comments = await response.json();
+        console.log(comments)
 
         // Clear existing comments
         dataComment.innerHTML = "";
@@ -654,8 +641,8 @@
       }
     }
 
-    // Load the comments when the page loads
-    document.addEventListener("DOMContentLoaded", getComment);
+    disableScroll();
+    sakuraFalling();
   </script>
 
   <!-- Countdown -->
