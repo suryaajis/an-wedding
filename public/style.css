@@ -308,6 +308,13 @@ h5 {
   font-size: 20px;
 }
 
+.info .dresscode .colour {
+  height: 100px;
+  width: 100px;
+  border-radius: 10px;
+  margin: 15px;
+}
+
 .info .maps {
   border-radius: 5%;
   width: 100%;
@@ -600,6 +607,13 @@ footer li {
   .info .dresscode .card-body p {
     font-size: 10px;
     margin-top: -10px;
+  }
+
+  .info .dresscode .colour {
+    height: 50px;
+    width: 50px;
+    border-radius: 10px;
+    margin: 8px;
   }
 
   .info .description {

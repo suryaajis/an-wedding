@@ -262,37 +262,10 @@
               class="row justify-content-center"
               style="margin-top: -20px; margin-bottom: 20px"
             >
-              <div
-                class="col-4"
-                style="
-                  background-color: #f6f5ec;
-                  width: 50px;
-                  height: 50px;
-                  margin-right: 15px;
-                "
-              ></div>
-              <div
-                class="col-4"
-                style="
-                  background-color: #ece6d3;
-                  width: 50px;
-                  height: 50px;
-                  margin-right: 15px;
-                "
-              ></div>
-              <div
-                class="col-4"
-                style="
-                  background-color: #c1b6a4;
-                  width: 50px;
-                  height: 50px;
-                  margin-right: 15px;
-                "
-              ></div>
-              <div
-                class="col-4"
-                style="background-color: #ad9476; width: 50px; height: 50px"
-              ></div>
+              <div class="col-4 colour" style="background-color: #f6f5ec"></div>
+              <div class="col-4 colour" style="background-color: #ece6d3"></div>
+              <div class="col-4 colour" style="background-color: #c1b6a4"></div>
+              <div class="col-4 colour" style="background-color: #ad9476"></div>
             </div>
           </div>
 
@@ -333,7 +306,6 @@
           <div
             data-aos="fade-up"
             data-aos-duration="2000"
-            data-aos-once="true"
             class="card-body border rounded-4 shadow p-3"
           >
             <div class="mb-3">
@@ -366,7 +338,22 @@
             </div>
           </div>
 
-          <div class="my-3 pt-3" id="comments"></div>
+          <div
+            data-aos="fade-up"
+            data-aos-duration="2000"
+            class="my-3 pt-3"
+            id="comments"
+          >
+            <div class="comment-item rounded">
+              <h5>Abc</h5>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Officiis fugit illo quia odit. Est ab suscipit quo consectetur
+                quam deleniti eos ullam explicabo atque. Nemo consectetur sequi
+                ullam amet esse.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -416,7 +403,7 @@
 
     <div id="audio-container">
       <audio id="song" loop>
-        <source src="./assets/audio/keshi-warheaven.mp3" type="audio/mp3" />
+        <source src="./assets/audio/keshi-warheaven-cut.mp3" type="audio/mp3" />
       </audio>
 
       <div class="audio-icon-wrapper" style="display: none">
@@ -471,7 +458,6 @@
       song
         .play()
         .then(() => {
-          song.currentTime = 11;
           isPlaying = true;
         })
         .catch((error) => {
@@ -568,7 +554,6 @@
         song
           .play()
           .then(() => {
-            song.currentTime = 11; // Set currentTime here after playback begins
             audioIcon.classList.add("bi-disc");
             audioIcon.classList.remove("bi-pause-circle");
           })
