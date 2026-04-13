@@ -1,0 +1,25 @@
+{
+  "name": "Aji & Nikmah Wedding",
+  "short_name": "Aji & Nikmah",
+  "description": "Wedding invitation of Aji & Nikmah",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#b08968",
+  "icons": [
+    {
+      "src": "assets/img/aji.png",
+      "sizes": "192x192 512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/img/nikmah.png",
+      "sizes": "192x192 512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
